@@ -5,15 +5,17 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Riggy Websites — Websites for Small Businesses in Vancouver, BC</title>
 <meta name="description" content="Riggy Websites builds fast, modern websites for small businesses — live in days, not months. Based in Vancouver, BC.">
+<link rel="canonical" href="https://riggywebsites.com/">
 <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg%20xmlns%3D%27http%3A//www.w3.org/2000/svg%27%20viewBox%3D%270%200%2064%2064%27%3E%3Cdefs%3E%3ClinearGradient%20id%3D%27g%27%20x1%3D%270%27%20y1%3D%270%27%20x2%3D%271%27%20y2%3D%271%27%3E%3Cstop%20offset%3D%270%25%27%20stop-color%3D%27%233B1464%27/%3E%3Cstop%20offset%3D%2755%25%27%20stop-color%3D%27%23B23A7A%27/%3E%3Cstop%20offset%3D%27100%25%27%20stop-color%3D%27%23FF7A5C%27/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect%20width%3D%2764%27%20height%3D%2764%27%20rx%3D%2714%27%20fill%3D%27url%28%23g%29%27/%3E%3Ctext%20x%3D%2732%27%20y%3D%2745%27%20font-family%3D%27Georgia%2C%20serif%27%20font-weight%3D%27900%27%20font-size%3D%2736%27%20fill%3D%27white%27%20text-anchor%3D%27middle%27%3ER%3C/text%3E%3C/svg%3E">
 <meta property="og:type" content="website">
+<meta property="og:url" content="https://riggywebsites.com/">
 <meta property="og:title" content="Riggy Websites — Websites for Small Businesses">
 <meta property="og:description" content="Fast, modern websites for small businesses — live in days, not months. Based in Vancouver, BC.">
-<meta property="og:image" content="og-image.png">
+<meta property="og:image" content="https://riggywebsites.com/og-image.png">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Riggy Websites — Websites for Small Businesses">
 <meta name="twitter:description" content="Fast, modern websites for small businesses — live in days, not months. Based in Vancouver, BC.">
-<meta name="twitter:image" content="og-image.png">
+<meta name="twitter:image" content="https://riggywebsites.com/og-image.png">
 <style>
   :root{
     --bg:#FAF9FA;
@@ -306,6 +308,62 @@
   .mock-caption{margin-top:12px; font-size:0.84rem; color:var(--muted); line-height:1.5;}
   .mock-caption b{color:var(--ink);}
 
+  /* layout variety: stat strip (gym) */
+  .site-stats{display:flex; flex:none; border-top:1px solid var(--t-line); border-bottom:1px solid var(--t-line); background:color-mix(in srgb, var(--t-accent) 6%, transparent);}
+  .site-stat{flex:1; text-align:center; padding:5px 2px;}
+  .site-stat b{display:block; font-family:'Big Shoulders Display',sans-serif; font-size:0.62rem; color:var(--t-accent); line-height:1;}
+  .site-stat span{display:block; font-size:0.3rem; color:var(--t-text-muted); text-transform:uppercase; letter-spacing:0.04em; margin-top:2px;}
+  .hero .site-stat b{font-size:1rem;}
+  .hero .site-stat span{font-size:0.5rem;}
+
+  /* layout variety: product grid (nutra) */
+  .site-products{display:grid; grid-template-columns:repeat(3,1fr); gap:5px; padding:0 10px 8px; flex:none;}
+  .site-product{aspect-ratio:1; border-radius:5px; position:relative; overflow:hidden; border:1px solid var(--t-line);}
+  .site-product:nth-child(1){background:linear-gradient(150deg, color-mix(in srgb, var(--t-accent) 55%, white 10%), color-mix(in srgb, var(--t-accent) 20%, var(--t-bg2)));}
+  .site-product:nth-child(2){background:linear-gradient(150deg, color-mix(in srgb, var(--t-accent2) 55%, white 10%), color-mix(in srgb, var(--t-accent2) 20%, var(--t-bg2)));}
+  .site-product:nth-child(3){background:linear-gradient(150deg, color-mix(in srgb, var(--t-accent) 35%, var(--t-accent2) 35%), var(--t-bg2));}
+  .site-product::after{
+    content:attr(data-price); position:absolute; left:3px; bottom:3px; font-family:'IBM Plex Mono',monospace;
+    font-size:0.32rem; font-weight:600; color:#fff; background:rgba(0,0,0,0.35); padding:1px 4px; border-radius:20px;
+  }
+
+  /* layout variety: split hero (auto) */
+  .site-hero--split{flex-direction:row; align-items:center; gap:10px; padding-right:10px;}
+  .site-hero--split .site-hero-text{flex:1; min-width:0;}
+  .site-hero-visual{
+    flex:none; width:34%; aspect-ratio:1; border-radius:8px; position:relative; overflow:hidden;
+    background:linear-gradient(150deg, color-mix(in srgb, var(--t-accent) 30%, var(--t-bg2)), color-mix(in srgb, var(--t-accent) 55%, var(--t-bg2)));
+    border:1px solid var(--t-line); box-shadow:inset 0 1px 3px rgba(0,0,0,0.08);
+  }
+  .site-hero-visual::after{
+    content:""; position:absolute; inset:0; margin:auto; width:44%; aspect-ratio:1; opacity:0.55;
+    background-color:color-mix(in srgb, var(--t-accent) 75%, white 10%);
+    -webkit-mask:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'><circle cx='7' cy='17' r='2'/><circle cx='17' cy='17' r='2'/><path d='M5 17H3V13L4 8H16L19 13H21V17H19'/><path d='M9 13h6'/></svg>") center/contain no-repeat;
+    mask:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'><circle cx='7' cy='17' r='2'/><circle cx='17' cy='17' r='2'/><path d='M5 17H3V13L4 8H16L19 13H21V17H19'/><path d='M9 13h6'/></svg>") center/contain no-repeat;
+  }
+  .hero .site-hero-visual::after{width:40%;}
+
+  /* layout variety: menu list (coffee) */
+  .site-menu{display:flex; flex-direction:column; gap:3px; padding:0 12px 8px; flex:none;}
+  .site-menu-item{display:flex; align-items:baseline; gap:4px; font-size:0.4rem; color:var(--t-text);}
+  .site-menu-item .leader{flex:1; border-bottom:1px dotted color-mix(in srgb, var(--t-text-muted) 60%, transparent); transform:translateY(-2px); min-width:6px;}
+  .site-menu-item .price{font-family:'IBM Plex Mono',monospace; color:var(--t-accent); font-weight:600;}
+  .hero .site-menu-item{font-size:0.58rem;}
+
+  /* layout variety: dated "before" touches */
+  .uc-banner{
+    flex:none; background:repeating-linear-gradient(45deg,#F5D949,#F5D949 6px,#20201E 6px,#20201E 12px);
+    padding:3px 6px; text-align:center;
+  }
+  .uc-banner span{background:#fff; color:#20201E; font-family:'Courier New',monospace; font-weight:800; font-size:0.32rem; letter-spacing:0.03em; padding:1px 6px; border-radius:2px;}
+  .retro-counter{
+    flex:none; display:flex; align-items:center; gap:4px; padding:4px 9px; font-family:'Courier New',monospace;
+    font-size:0.34rem; color:#8A8390; background:#F1EDF3; border-top:1px dashed #D8D2DA;
+  }
+  .retro-counter .digits{display:flex; gap:1px;}
+  .retro-counter .digits span{background:#111; color:#3BE04A; padding:0px 2px; border-radius:1px; font-weight:700;}
+  .cluttered-nav .site-nav-links{overflow:hidden; max-width:66%;}
+
   /* sections */
   section{padding-block:52px; border-top:1px solid var(--line); scroll-margin-top:76px;}
   .section-head{display:flex; align-items:baseline; justify-content:space-between; gap:20px; margin-bottom:30px; flex-wrap:wrap;}
@@ -515,7 +573,7 @@
               <div class="fake-btn">Learn More</div>
             </div>
             <div class="site-photo"></div>
-            <div class="site-foot">© City Gym</div>
+            <div class="site-foot">© City Gym · Best viewed in Internet Explorer</div>
           </div></div>
         </div>
         <div class="mock-panel mock-after theme-gym">
@@ -528,7 +586,11 @@
               <div class="site-meta">7 Days a Week · Downtown Studio</div>
               <div class="fake-btn">Book Free Session</div>
             </div>
-            <div class="site-tags"><span class="site-tag">No Contract</span><span class="site-tag">All Levels</span><span class="site-tag">First Class Free</span></div>
+            <div class="site-stats">
+              <div class="site-stat"><b>500+</b><span>Members</span></div>
+              <div class="site-stat"><b>12</b><span>Classes/wk</span></div>
+              <div class="site-stat"><b>4.9★</b><span>Rating</span></div>
+            </div>
             <div class="site-photo"></div>
             <div class="site-foot">© City Gym Studio</div>
           </div></div>
@@ -558,12 +620,12 @@
               <div class="site-hero"><div class="fake-headline">Welcome To<br>Our Store</div><div class="fake-sub">We sell health &amp; wellness products.</div><div class="site-meta">In business since 2009.</div><div class="fake-btn">More Info</div></div>
               <div class="site-photo"></div>
               <div class="site-foot">© Nutra Plus</div>
+              <div class="retro-counter">Visitors:<span class="digits"><span>0</span><span>0</span><span>4</span><span>2</span><span>7</span></span></div>
             </div></div></div>
             <div class="mock-panel mock-after theme-nutra"><div class="mock-label"><span>After</span></div><div class="mock-canvas"><div class="site">
               <div class="site-nav"><div class="site-logo">NUTRA+</div><div class="site-nav-links"><span>Shop</span><span>Visit</span></div></div>
-              <div class="site-hero"><div class="fake-headline">Your Store,<br>Simplified.</div><div class="fake-sub">Shop online, or visit us in-store today.</div><div class="site-meta">Open Daily · Locally Owned</div><div class="fake-btn">Shop Now</div></div>
-              <div class="site-tags"><span class="site-tag">Free Shipping $50+</span><span class="site-tag">Locally Owned</span><span class="site-tag">★ 4.7 Rated</span></div>
-              <div class="site-photo"></div>
+              <div class="site-hero"><div class="fake-headline">Your Store,<br>Simplified.</div><div class="fake-sub">Shop online, or visit us in-store today.</div><div class="site-meta">Open Daily · Locally Owned</div><div class="fake-btn" style="align-self:flex-start;">Shop Now</div></div>
+              <div class="site-products"><div class="site-product" data-price="$18"></div><div class="site-product" data-price="$24"></div><div class="site-product" data-price="$32"></div></div>
               <div class="site-foot">© Nutra+ Supplements</div>
             </div></div></div>
           </div>
@@ -575,16 +637,18 @@
         <div class="mock">
           <div class="mock-row">
             <div class="mock-panel mock-before"><div class="mock-label"><span>Before</span></div><div class="mock-canvas"><div class="site">
-              <div class="site-nav"><div class="site-logo">AutoFix</div><div class="site-nav-links"><span>Home</span><span>Services</span><span>Contact</span></div></div>
+              <div class="site-nav cluttered-nav"><div class="site-logo">AutoFix</div><div class="site-nav-links"><span>Home</span><span>Services</span><span>Parts</span><span>Tires</span><span>About</span><span>Contact</span></div></div>
               <div class="site-hero"><div class="fake-headline">Welcome To<br>Our Website</div><div class="fake-sub">We're a local business. Call us for more information.</div><div class="site-meta">Serving the area since 1998.</div><div class="fake-btn">About Us</div></div>
               <div class="site-photo"></div>
               <div class="site-foot">© AutoFix Auto Repair</div>
             </div></div></div>
             <div class="mock-panel mock-after theme-auto"><div class="mock-label"><span>After</span></div><div class="mock-canvas"><div class="site">
               <div class="site-nav"><div class="site-logo">AUTOFIX</div><div class="site-nav-links"><span>Services</span><span>Pricing</span><span>Book</span></div></div>
-              <div class="site-hero"><div class="fake-headline">We Fix Cars<br>Right, First Time.</div><div class="fake-sub">Book your appointment online in under a minute.</div><div class="site-meta">Mon–Sat · Vancouver, BC</div><div class="fake-btn">Book Now →</div></div>
+              <div class="site-hero site-hero--split">
+                <div class="site-hero-text"><div class="fake-headline">We Fix Cars<br>Right, First Time.</div><div class="fake-sub">Book your appointment online in under a minute.</div><div class="site-meta">Mon–Sat · Vancouver, BC</div><div class="fake-btn">Book Now →</div></div>
+                <div class="site-hero-visual"></div>
+              </div>
               <div class="site-tags"><span class="site-tag">Same-Day Service</span><span class="site-tag">Free Estimates</span><span class="site-tag">★ 4.8 Rated</span></div>
-              <div class="site-photo"></div>
               <div class="site-foot">© AutoFix — Vancouver, BC</div>
             </div></div></div>
           </div>
@@ -596,6 +660,7 @@
         <div class="mock">
           <div class="mock-row">
             <div class="mock-panel mock-before"><div class="mock-label"><span>Before</span></div><div class="mock-canvas"><div class="site">
+              <div class="uc-banner"><span>UNDER CONSTRUCTION</span></div>
               <div class="site-nav"><div class="site-logo">The Coffee Spot</div><div class="site-nav-links"><span>Home</span><span>Menu</span></div></div>
               <div class="site-hero"><div class="fake-headline">Welcome</div><div class="fake-sub">We have coffee and food, open daily.</div><div class="site-meta">Open daily, no wifi password needed.</div><div class="fake-btn">Menu</div></div>
               <div class="site-photo"></div>
@@ -603,9 +668,12 @@
             </div></div></div>
             <div class="mock-panel mock-after theme-coffee"><div class="mock-label"><span>After</span></div><div class="mock-canvas"><div class="site">
               <div class="site-nav"><div class="site-logo">COFFEE SPOT</div><div class="site-nav-links"><span>Menu</span><span>Order</span></div></div>
-              <div class="site-hero"><div class="fake-headline">Your New<br>Morning Ritual.</div><div class="fake-sub">Order ahead, skip the line entirely.</div><div class="site-meta">Mon–Sun 7am–5pm · Local Roast</div><div class="fake-btn">Order Now</div></div>
-              <div class="site-tags"><span class="site-tag">Free Wifi</span><span class="site-tag">Order Ahead</span><span class="site-tag">★ 4.9 Rated</span></div>
-              <div class="site-photo"></div>
+              <div class="site-hero"><div class="fake-headline">Your New<br>Morning Ritual.</div><div class="fake-sub">Order ahead, skip the line entirely.</div><div class="site-meta">Mon–Sun 7am–5pm · Local Roast</div></div>
+              <div class="site-menu">
+                <div class="site-menu-item"><span>Latte</span><span class="leader"></span><span class="price">$4.75</span></div>
+                <div class="site-menu-item"><span>Cold Brew</span><span class="leader"></span><span class="price">$5.25</span></div>
+                <div class="site-menu-item"><span>Croissant</span><span class="leader"></span><span class="price">$3.50</span></div>
+              </div>
               <div class="site-foot">© Coffee Spot Café</div>
             </div></div></div>
           </div>
