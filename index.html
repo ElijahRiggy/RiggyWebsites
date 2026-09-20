@@ -340,18 +340,12 @@
   footer .brand-logo{gap:1px;}
   footer .brand-logo .r1{font-size:1.15rem;}
   footer .brand-logo .r2{font-size:0.5rem;}
-
-  /* mobile sticky CTA */
-  .mobile-cta{
-    display:none; position:fixed; left:16px; right:16px; bottom:16px; z-index:40;
-    background:var(--grad); color:#fff; text-decoration:none; text-align:center;
-    font-weight:700; font-size:0.95rem; padding:14px; border-radius:10px;
-    box-shadow:0 14px 32px -14px color-mix(in srgb, var(--accent) 65%, transparent);
+  .footer-right{display:flex; align-items:center; gap:18px; flex-wrap:wrap;}
+  .footer-social{
+    display:inline-flex; align-items:center; gap:6px; color:var(--muted); text-decoration:none;
+    transition:color 0.2s ease;
   }
-  @media (max-width:640px){
-    .mobile-cta{display:block; padding-bottom:calc(14px + env(safe-area-inset-bottom,0px));}
-    body{padding-bottom:76px;}
-  }
+  .footer-social:hover{color:var(--accent);}
 
   /* scroll reveal */
   .reveal{opacity:0; transform:translateY(22px); transition:opacity 0.7s ease, transform 0.7s ease;}
@@ -551,12 +545,7 @@
     <div class="custom-card">
       <div>
         <h3>Just need a page or two added?</h3>
-        <p>Already have a site and just need it extended — a new page, a menu update, a booking section? Priced per page, not a full rebuild.</p>
-      </div>
-      <div class="ala-carte">
-        <div class="ala-carte-item"><div class="qty">1 page</div><div class="amt">$40</div></div>
-        <div class="ala-carte-item"><div class="qty">2 pages</div><div class="amt">$60</div></div>
-        <div class="ala-carte-item plus"><div class="qty">3+</div><div class="amt">Let's talk</div></div>
+        <p>Already have a site and just need it extended — a new page, a menu update, a booking section? Priced per page, not a full rebuild. Tell me what you need and I'll give you a straight price for it.</p>
       </div>
       <a class="btn btn-ghost" href="#contact">Tell me what you need</a>
     </div>
@@ -607,11 +596,15 @@
 
   <footer>
     <a href="#" class="brand-logo" aria-label="Riggy Websites — home"><span class="r1">RIGGY</span><span class="r2">Websites</span></a>
-    <div>Vancouver, BC · © 2026</div>
+    <div class="footer-right">
+      <a class="footer-social" href="https://www.facebook.com/RiggyWebsites/" target="_blank" rel="noopener" aria-label="Riggy Websites on Facebook">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M22 12.06C22 6.5 17.52 2 12 2S2 6.5 2 12.06c0 5 3.66 9.15 8.44 9.94v-7.03H7.9v-2.91h2.54V9.85c0-2.51 1.49-3.9 3.77-3.9 1.09 0 2.24.2 2.24.2v2.46h-1.26c-1.24 0-1.63.77-1.63 1.56v1.89h2.78l-.45 2.91h-2.33V22c4.78-.79 8.44-4.94 8.44-9.94Z"/></svg>
+        <span>Facebook</span>
+      </a>
+      <span>Vancouver, BC · © 2026</span>
+    </div>
   </footer>
 </div>
-
-<a href="#contact" class="mobile-cta">Get a free mockup →</a>
 
 <script>
 (function(){
