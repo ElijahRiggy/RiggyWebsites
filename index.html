@@ -73,6 +73,18 @@
         "priceCurrency": "CAD",
         "unitCode": "MON"
       }
+    },
+    {
+      "@type": "Offer",
+      "itemOffered": { "@type": "Service", "name": "Yearly website hosting & care" },
+      "price": "250",
+      "priceCurrency": "CAD",
+      "priceSpecification": {
+        "@type": "UnitPriceSpecification",
+        "price": "250",
+        "priceCurrency": "CAD",
+        "unitCode": "ANN"
+      }
     }
   ]
 }
@@ -583,6 +595,16 @@
       </div>
     </div>
 
+    <div class="quote" style="margin-bottom:32px;">
+      <div style="flex:none;">
+        <div class="stat">25%</div>
+        <div class="stat-label">Off for referrals</div>
+      </div>
+      <div style="flex:1; min-width:200px; color:var(--muted); font-size:0.95rem; line-height:1.6;">
+        Know a business that could use a site? Refer them, and once they become a client, you get 25% off any purchase of your own.
+      </div>
+    </div>
+
     <div class="pricing-group">
       <div class="pricing-group-label">Websites</div>
       <div class="pricing">
@@ -609,11 +631,17 @@
 
     <div class="pricing-group">
       <div class="pricing-group-label">Hosting &amp; care — optional</div>
-      <div class="pricing" style="grid-template-columns:minmax(0,340px); justify-content:start;">
+      <div class="pricing" style="grid-template-columns:repeat(2,minmax(0,340px)); justify-content:start;">
         <div class="price-card">
           <div class="price-name">Monthly hosting &amp; care</div>
           <div class="price-amount">$25<sup>CAD/mo</sup></div>
-          <ul><li>Hosting, domain connection &amp; SSL handled for you</li><li>Uptime monitoring — I catch problems before you do</li><li>Small text/photo updates included</li><li>Priority turnaround if something breaks</li><li>Or pay yearly: $250<span class="mono" style="font-size:0.78rem; color:var(--muted);">CAD/yr</span> — 2 months free</li></ul>
+          <ul><li>Hosting, domain connection &amp; SSL handled for you</li><li>Uptime monitoring — I catch problems before you do</li><li>Small text/photo updates included</li><li>Priority turnaround if something breaks</li></ul>
+          <div class="price-note">Add-on, on top of your one-time site price. Cancel anytime — I'll help you move hosting elsewhere if you do.</div>
+        </div>
+        <div class="price-card featured">
+          <div class="price-name">Yearly hosting &amp; care</div>
+          <div class="price-amount">$250<sup>CAD/yr</sup></div>
+          <ul><li>Everything in the monthly plan</li><li>2 months free compared to paying monthly</li><li>One payment, one less thing to think about</li></ul>
           <div class="price-note">Add-on, on top of your one-time site price. Cancel anytime — I'll help you move hosting elsewhere if you do.</div>
         </div>
       </div>
