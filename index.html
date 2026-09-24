@@ -85,7 +85,13 @@
         "priceCurrency": "CAD",
         "unitCode": "ANN"
       }
-    }
+    },
+    { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "One-page website design (US)" }, "price": "179", "priceCurrency": "USD" },
+    { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Full website design (US)" }, "price": "329", "priceCurrency": "USD" },
+    { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Monthly website hosting & care (US)" }, "price": "19", "priceCurrency": "USD",
+      "priceSpecification": { "@type": "UnitPriceSpecification", "price": "19", "priceCurrency": "USD", "unitCode": "MON" } },
+    { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Yearly website hosting & care (US)" }, "price": "190", "priceCurrency": "USD",
+      "priceSpecification": { "@type": "UnitPriceSpecification", "price": "190", "priceCurrency": "USD", "unitCode": "ANN" } }
   ]
 }
 </script>
@@ -346,6 +352,12 @@
   .price-amount sup{font-size:0.9rem; color:var(--muted); font-family:'IBM Plex Mono',monospace;}
   .price-card ul{margin:0; padding-left:18px; color:var(--muted); font-size:0.88rem; line-height:1.8; flex:1;}
   .price-note{font-size:0.78rem; color:var(--muted); font-style:italic;}
+
+  .currency-toggle{display:inline-flex; margin-top:16px; padding:3px; border:1px solid var(--line); border-radius:100px; background:var(--paper);}
+  .currency-toggle button{border:none; background:transparent; color:var(--muted); font-family:'IBM Plex Mono',monospace; font-size:0.78rem; font-weight:600; letter-spacing:0.06em; padding:6px 14px; border-radius:100px; cursor:pointer; transition:color 0.2s ease, background 0.2s ease;}
+  .currency-toggle button:hover{color:var(--ink);}
+  .currency-toggle button[aria-pressed="true"]{background:var(--grad); color:#fff;}
+  .currency-toggle button:focus-visible{outline:2px solid var(--accent); outline-offset:2px;}
 
   .custom-card{
     margin-top:36px; border:1.5px dashed var(--line); border-radius:12px; padding:28px 30px;
@@ -628,6 +640,10 @@
         <p>Rough starting points below — every quote is adjusted once I see what your business actually needs.</p>
         <p class="mock-note">Free mockups are limited to a few new businesses at a time — get yours before I'm booked up.</p>
         <p class="mock-note">You're only billed once you approve the mockup — I send a Stripe invoice, so no payment info goes through this site.</p>
+        <div class="currency-toggle" role="group" aria-label="Show prices in">
+          <button type="button" data-currency="CAD" aria-pressed="true">CAD</button>
+          <button type="button" data-currency="USD" aria-pressed="false">USD</button>
+        </div>
       </div>
     </div>
 
@@ -652,16 +668,16 @@
           <div class="price-note">See it before you spend anything.</div>
           <button type="button" class="btn btn-primary price-select-btn" data-select-package>Select this</button>
         </div>
-        <div class="price-card featured" data-package="One-pager" data-price="$249 CAD">
+        <div class="price-card featured" data-package="One-pager" data-price="$249 CAD" data-price-cad="$249 CAD" data-price-usd="$179 USD">
           <div class="price-name">One-pager</div>
-          <div class="price-amount">$249<sup>CAD</sup></div>
+          <div class="price-amount" data-cad="$249&lt;sup&gt;CAD&lt;/sup&gt;" data-usd="$179&lt;sup&gt;USD&lt;/sup&gt;">$249<sup>CAD</sup></div>
           <ul><li>Single-page site, built to your business</li><li>Mobile-optimized</li><li>Contact form wired to your email</li><li>Live within a few days</li></ul>
           <div class="price-note">Invoiced after you approve the mockup — nothing charged upfront.</div>
           <button type="button" class="btn btn-primary price-select-btn" data-select-package>Select this</button>
         </div>
-        <div class="price-card featured" data-package="Full site" data-price="$449 CAD">
+        <div class="price-card featured" data-package="Full site" data-price="$449 CAD" data-price-cad="$449 CAD" data-price-usd="$329 USD">
           <div class="price-name">Full site</div>
-          <div class="price-amount">$449<sup>CAD</sup></div>
+          <div class="price-amount" data-cad="$449&lt;sup&gt;CAD&lt;/sup&gt;" data-usd="$329&lt;sup&gt;USD&lt;/sup&gt;">$449<sup>CAD</sup></div>
           <ul><li>Multiple sections (services, about, gallery, etc.)</li><li>Contact form + booking/social links</li><li>2 rounds of revisions</li><li>Basic on-page SEO setup</li></ul>
           <div class="price-note">Invoiced after you approve the mockup — nothing charged upfront.</div>
           <button type="button" class="btn btn-primary price-select-btn" data-select-package>Select this</button>
@@ -672,16 +688,16 @@
     <div class="pricing-group">
       <div class="pricing-group-label">Hosting &amp; care — optional</div>
       <div class="pricing" style="grid-template-columns:repeat(2,minmax(0,340px)); justify-content:center;">
-        <div class="price-card featured" data-addon="Monthly hosting &amp; care" data-price="$25 CAD/mo">
+        <div class="price-card featured" data-addon="Monthly hosting &amp; care" data-price="$25 CAD/mo" data-price-cad="$25 CAD/mo" data-price-usd="$19 USD/mo">
           <div class="price-name">Monthly hosting &amp; care</div>
-          <div class="price-amount">$25<sup>CAD/mo</sup></div>
+          <div class="price-amount" data-cad="$25&lt;sup&gt;CAD/mo&lt;/sup&gt;" data-usd="$19&lt;sup&gt;USD/mo&lt;/sup&gt;">$25<sup>CAD/mo</sup></div>
           <ul><li>Hosting, domain connection &amp; SSL handled for you</li><li>Uptime monitoring — I catch problems before you do</li><li>Small text/photo updates included</li><li>Priority turnaround if something breaks</li></ul>
           <div class="price-note">Add-on, on top of your one-time site price. Cancel anytime — I'll help you move hosting elsewhere if you do.</div>
           <button type="button" class="btn btn-primary price-select-btn" data-select-addon>Select this</button>
         </div>
-        <div class="price-card featured" data-addon="Yearly hosting &amp; care" data-price="$250 CAD/yr">
+        <div class="price-card featured" data-addon="Yearly hosting &amp; care" data-price="$250 CAD/yr" data-price-cad="$250 CAD/yr" data-price-usd="$190 USD/yr">
           <div class="price-name">Yearly hosting &amp; care</div>
-          <div class="price-amount">$250<sup>CAD/yr</sup></div>
+          <div class="price-amount" data-cad="$250&lt;sup&gt;CAD/yr&lt;/sup&gt;" data-usd="$190&lt;sup&gt;USD/yr&lt;/sup&gt;">$250<sup>CAD/yr</sup></div>
           <ul><li>Everything in the monthly plan</li><li>2 months free compared to paying monthly</li><li>One payment, one less thing to think about</li></ul>
           <div class="price-note">Add-on, on top of your one-time site price. Cancel anytime — I'll help you move hosting elsewhere if you do.</div>
           <button type="button" class="btn btn-primary price-select-btn" data-select-addon>Select this</button>
@@ -741,12 +757,12 @@
               <label for="pkg-mockup"><span class="opt-name">Free mockup</span><span class="opt-price">$0</span></label>
             </span>
             <span class="option-chip">
-              <input type="radio" name="package" id="pkg-onepager" value="One-pager" data-price="$249 CAD">
-              <label for="pkg-onepager"><span class="opt-name">One-pager</span><span class="opt-price">$249 CAD</span></label>
+              <input type="radio" name="package" id="pkg-onepager" value="One-pager" data-price="$249 CAD" data-price-cad="$249 CAD" data-price-usd="$179 USD">
+              <label for="pkg-onepager"><span class="opt-name">One-pager</span><span class="opt-price" data-cad="$249 CAD" data-usd="$179 USD">$249 CAD</span></label>
             </span>
             <span class="option-chip">
-              <input type="radio" name="package" id="pkg-fullsite" value="Full site" data-price="$449 CAD">
-              <label for="pkg-fullsite"><span class="opt-name">Full site</span><span class="opt-price">$449 CAD</span></label>
+              <input type="radio" name="package" id="pkg-fullsite" value="Full site" data-price="$449 CAD" data-price-cad="$449 CAD" data-price-usd="$329 USD">
+              <label for="pkg-fullsite"><span class="opt-name">Full site</span><span class="opt-price" data-cad="$449 CAD" data-usd="$329 USD">$449 CAD</span></label>
             </span>
             <span class="option-chip">
               <input type="radio" name="package" id="pkg-custom" value="Custom" data-price="Price to be determined">
@@ -762,16 +778,17 @@
               <label for="addon-none"><span class="opt-name">None</span></label>
             </span>
             <span class="option-chip">
-              <input type="radio" name="addon" id="addon-monthly" value="Monthly hosting &amp; care" data-price="$25 CAD/mo">
-              <label for="addon-monthly"><span class="opt-name">Monthly</span><span class="opt-price">$25 CAD/mo</span></label>
+              <input type="radio" name="addon" id="addon-monthly" value="Monthly hosting &amp; care" data-price="$25 CAD/mo" data-price-cad="$25 CAD/mo" data-price-usd="$19 USD/mo">
+              <label for="addon-monthly"><span class="opt-name">Monthly</span><span class="opt-price" data-cad="$25 CAD/mo" data-usd="$19 USD/mo">$25 CAD/mo</span></label>
             </span>
             <span class="option-chip">
-              <input type="radio" name="addon" id="addon-yearly" value="Yearly hosting &amp; care" data-price="$250 CAD/yr">
-              <label for="addon-yearly"><span class="opt-name">Yearly</span><span class="opt-price">$250 CAD/yr</span></label>
+              <input type="radio" name="addon" id="addon-yearly" value="Yearly hosting &amp; care" data-price="$250 CAD/yr" data-price-cad="$250 CAD/yr" data-price-usd="$190 USD/yr">
+              <label for="addon-yearly"><span class="opt-name">Yearly</span><span class="opt-price" data-cad="$250 CAD/yr" data-usd="$190 USD/yr">$250 CAD/yr</span></label>
             </span>
           </div>
         </div>
         <input type="hidden" name="estimated_price" id="estimatedPriceField">
+        <input type="hidden" name="currency" id="currencyField" value="CAD">
         <div class="field"><label for="message">What do you sell, and do you have a website right now?</label><textarea id="message" name="message"></textarea></div>
         <button class="btn btn-primary" type="submit" style="align-self:flex-start;">
           <span class="btn-label">Send it over</span>
@@ -980,6 +997,38 @@
   });
 })();
 
+/* CAD / USD currency toggle */
+(function(){
+  var buttons = document.querySelectorAll('.currency-toggle [data-currency]');
+  if(!buttons.length) return;
+  var currencyField = document.getElementById('currencyField');
+  function apply(cur){
+    var key = cur === 'USD' ? 'usd' : 'cad';
+    document.querySelectorAll('[data-cad][data-usd]').forEach(function(el){
+      var tmp = document.createElement('textarea'); tmp.innerHTML = el.getAttribute('data-' + key);
+      el.innerHTML = tmp.value;
+    });
+    document.querySelectorAll('[data-price-cad][data-price-usd]').forEach(function(el){
+      el.setAttribute('data-price', el.getAttribute('data-price-' + key));
+    });
+    buttons.forEach(function(b){ b.setAttribute('aria-pressed', b.getAttribute('data-currency') === cur ? 'true' : 'false'); });
+    if(currencyField) currencyField.value = cur;
+    try{ localStorage.setItem('riggyCurrency', cur); }catch(e){}
+    document.dispatchEvent(new Event('currencychange'));
+  }
+  buttons.forEach(function(b){ b.addEventListener('click', function(){ apply(b.getAttribute('data-currency')); }); });
+  var saved = null;
+  try{ saved = localStorage.getItem('riggyCurrency'); }catch(e){}
+  if(!saved){
+    var tz = '';
+    try{ tz = Intl.DateTimeFormat().resolvedOptions().timeZone || ''; }catch(e){}
+    var caZones = /^America\/(Vancouver|Edmonton|Calgary|Regina|Winnipeg|Toronto|Montreal|Halifax|St_Johns|Moncton|Whitehorse|Yellowknife|Iqaluit|Dawson|Dawson_Creek|Fort_Nelson|Creston|Swift_Current|Glace_Bay|Goose_Bay|Rankin_Inlet|Cambridge_Bay|Inuvik|Atikokan|Resolute|Blanc-Sablon|Nipigon|Thunder_Bay|Rainy_River|Pangnirtung)$/;
+    var lang = (navigator.language || '').toLowerCase();
+    saved = (/^America\//.test(tz) && !caZones.test(tz) && lang !== 'en-ca' && lang !== 'fr-ca') ? 'USD' : 'CAD';
+  }
+  apply(saved);
+})();
+
 /* Pricing card -> contact form package/add-on selection */
 (function(){
   var packageRadios = document.querySelectorAll('input[name="package"]');
@@ -1017,6 +1066,7 @@
     });
   }
 
+  document.addEventListener('currencychange', updatePriceSummary);
   packageRadios.forEach(function(r){ r.addEventListener('change', function(){ updatePriceSummary(); highlightSelectedCards(); }); });
   addonRadios.forEach(function(r){ r.addEventListener('change', function(){ updatePriceSummary(); highlightSelectedCards(); }); });
 
